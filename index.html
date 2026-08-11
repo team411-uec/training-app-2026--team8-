@@ -47,6 +47,15 @@
 
     <!-- 操作ボタン。クリック時の処理は main.ts で結びつけている。 -->
     <div class="omikuji-controls">
+      <!--　ようこ
+      countedは回数表示するやつ。
+      clickcheck-buttonは押すボタン。
+      srcフォルダのclick.tsってファイルにこの動きを入れるプログラム組んだ。
+      -->
+      <h1 id="counted">0回</h1>
+      <script type="module" src="/src/main.ts"></script>
+      <button id="clickcheck-button">☚</button>
+      <script type="module" src="/src/main.ts"></script>
       <button id="draw-button">おみくじを引く</button>
       <button id="reset-button">リセット</button>
     </div>

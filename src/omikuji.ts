@@ -22,9 +22,10 @@ export const omikujiRatios: Record<OmikujiResult, number> = {
 let tickets: OmikujiResult[] = [];
 
 // 箱の中身を omikujiRatios の比率どおりに入れ直す。
+import { clickcount } from "./click";
 export function resetOmikuji(): void {
   tickets = [];
-
+  clickcount = 0;
   for (const [result, count] of Object.entries(omikujiRatios)) {
     for (let i = 0; i < count; i++) {
       // Object.entries だとキーが string 扱いになるので as で元の型に戻す。
