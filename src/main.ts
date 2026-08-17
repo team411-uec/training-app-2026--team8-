@@ -11,6 +11,7 @@ function main(): void {
   resetOmikuji();
 
   const drawButton = document.getElementById("draw-button");
+  const raredrawButton = document.getElementById("raredraw-button");
   const resetButton = document.getElementById("reset-button");
 
   drawButton?.addEventListener("click", () => {

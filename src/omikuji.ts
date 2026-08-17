@@ -5,16 +5,16 @@
 
 // おみくじの結果を表す型（Union Type）。
 // この6つの文字列以外は使えないので、打ち間違い（例: "第吉"）を防げる。
-export type OmikujiResult = "大吉" | "中吉" | "小吉" | "吉" | "末吉" | "凶";
+export type OmikujiResult = "S" | "A" | "B" | "C" | "D" | "E";
 
 // 各結果を何枚ずつ箱に入れるかの比率。数値は自由に変えてよい。
 export const omikujiRatios: Record<OmikujiResult, number> = {
-  大吉: 5,
-  中吉: 15,
-  小吉: 20,
-  吉: 30,
-  末吉: 20,
-  凶: 10,
+  S: 5,
+  A: 10,
+  B: 20,
+  C: 30,
+  D: 40,
+  E: 50,
 };
 
 // 箱の中身（引けるくじ）。このファイルの中だけで使う。
