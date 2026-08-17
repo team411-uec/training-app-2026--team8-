@@ -20,7 +20,14 @@ function main(): void {
     // render.ts の renderResult を実装すると、ここで画面に結果が出る（ステップ1）。
     renderResult(result);
   });
+  
+  raredrawButton?.addEventListener("click", () => {
+    const result = drawRareOmikuji();
 
+    // render.ts の renderResult を実装すると、ここで画面に結果が出る（ステップ1）。
+    renderResult(result);
+  });
+  
   resetButton?.addEventListener("click", () => {
     resetOmikuji();
     // 表示を初期状態（結果なし）に戻す。
