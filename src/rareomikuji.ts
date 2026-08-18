@@ -9,14 +9,15 @@ export type OmikujiResult = "S" | "A" | "B" | "C" | "D" | "E";
 
 // 各結果を何枚ずつ箱に入れるかの比率。数値は自由に変えてよい。
 export const omikujiRatios: Record<OmikujiResult, number> = {
-  S: 5,
-  A: 10,
-  B: 20,
-  C: 30,
-  D: 40,
-  E: 50,
+  S: 10,
+  A: 15,
+  B: 25,
+  C: 25,
+  D: 30,
+  E: 30,
 };
 
+//ここまで
 // 箱の中身（引けるくじ）。このファイルの中だけで使う。
 // export していないので外部からは直接触れず、下の関数を通して操作する。
 let tickets: OmikujiResult[] = [];
