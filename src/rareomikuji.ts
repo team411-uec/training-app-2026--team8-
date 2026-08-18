@@ -17,13 +17,14 @@ export const omikujiRatios: Record<OmikujiResult, number> = {
   E: 30,
 };
 
-//ここまで
 // 箱の中身（引けるくじ）。このファイルの中だけで使う。
 // export していないので外部からは直接触れず、下の関数を通して操作する。
 let tickets: OmikujiResult[] = [];
 
+
+
 // 箱の中身を omikujiRatios の比率どおりに入れ直す。
-export function resetOmikuji(): void {
+export function rareresetOmikuji(): void {
   tickets = [];
 
   for (const [result, count] of Object.entries(omikujiRatios)) {
@@ -37,7 +38,7 @@ export function resetOmikuji(): void {
 }
 
 // 箱からランダムに1枚引いて返す。空のときは null を返す。
-export function drawOmikuji(): OmikujiResult | null {
+export function raredrawOmikuji(): OmikujiResult | null {
   if (tickets.length === 0) {
     console.log("もうおみくじ箱は空っぽです！リセットしてください。");
     return null;
