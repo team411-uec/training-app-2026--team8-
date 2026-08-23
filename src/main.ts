@@ -10,6 +10,7 @@ import { rareresetOmikuji, raredrawOmikuji } from "./rareomikuji";
 function main(): void {
   // おみくじ箱を用意する（1回呼ぶと、くじが入った状態になる）。
   resetOmikuji();
+  rareresetOmikuji();
 
   const drawButton = document.getElementById("draw-button");
   const raredrawButton = document.getElementById("raredraw-button");
@@ -23,7 +24,7 @@ function main(): void {
   });
   
   raredrawButton?.addEventListener("click", () => {
-    const result = drawRareOmikuji();
+    const result = raredrawOmikuji();
 
     // render.ts の renderResult を実装すると、ここで画面に結果が出る（ステップ1）。
     renderResult(result);
@@ -31,6 +32,7 @@ function main(): void {
   
   resetButton?.addEventListener("click", () => {
     resetOmikuji();
+    rareresetOmikuji();
     // 表示を初期状態（結果なし）に戻す。
     renderResult(null);
   });
