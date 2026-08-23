@@ -5,6 +5,7 @@
 
 import { resetOmikuji, drawOmikuji } from "./omikuji";
 import { renderResult } from "./render";
+import { click } from "./click";
 
 function main(): void {
   // おみくじ箱を用意する（1回呼ぶと、くじが入った状態になる）。

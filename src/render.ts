@@ -4,8 +4,8 @@
 
 // なおちゃんみえますか
 
-import type { OmikujiResult } from "./omikuji";
-
+import { omikujiRatios, type OmikujiResult } from "./omikuji";
+import { counter } from "./omikuji";
 // ステップ1（最初の課題）: この関数を実装する。
 //
 // いまは「引く」ボタンを押すと開発者ツール(F12)の Console に
@@ -21,13 +21,13 @@ export function renderResult(result: OmikujiResult | null): void {
   const omikujiresult = document.getElementById("result");
   if(omikujiresult){
     omikujiresult.textContent = `${result}`;
-    if(result==null){
+    if(result == null){
     omikujiresult.textContent ="ここに結果が出ます";
     }
   }
-
   // TODO（ステップ1）: ここに DOM 操作を書いて、画面に結果を表示する。
 }
+
 
 // 拡張ポイント（ステップ2以降）。必要になったら関数を足す。
 //  - 履歴をリスト表示する: document.createElement で <li> を作り、<ul id="history"> に足す関数。
