@@ -5,6 +5,7 @@
 // なおちゃんみえますか
 
 import type { OmikujiResult } from "./omikuji";
+import type { } from "./rareomikuji";
 
 // ステップ1（最初の課題）: この関数を実装する。
 //
@@ -17,6 +18,16 @@ import type { OmikujiResult } from "./omikuji";
 //  - 要素の中の文字は textContent で書き換えられる。
 //  - result が null のとき（リセット直後など）は初期メッセージを出す。
 export function renderResult(result: OmikujiResult | null): void {
+  // ステップ0 ではコンソールに結果が出るだけ。
+  const omikujiresult = document.getElementById("result");
+  if(omikujiresult){
+    omikujiresult.textContent = `${result}`;
+    if(result==null){
+    omikujiresult.textContent ="ここに結果が出ます";
+    }
+  }
+
+  export function rarerenderResult(result: OmikujiResult | null): void {
   // ステップ0 ではコンソールに結果が出るだけ。
   const omikujiresult = document.getElementById("result");
   if(omikujiresult){
