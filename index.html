@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>おみくじアプリ</title>
+    <title>ガチャアプリ test2</title>
 
     <!--
       最小限の見た目だけ整えている（Tailwind は使わない）。
@@ -31,85 +31,65 @@
         padding: 8px 16px;
         font-size: 16px;
         cursor: pointer;
-      }
-      #draw-button {
-        background-color: #ff5623;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        padding: 8px 16px;
-        font-size: 16px;
-        cursor: pointer;
-        position: relative;
-
-        /* 軽い立体感（2pxの影） */
-        box-shadow: 0 2px 0 #b33a1c;
-      }
-
-      /* 修正：:hover ではなく、JSでクラスがついた瞬間だけ実行する */
-      #draw-button.active-dip {
-        animation: dipAndReturn-draw 0.2s ease;
-      }
-      
-      /* アニメーションの流れ（内容はそのまま） */
-      @keyframes dipAndReturn-draw {
-        0% {
-          transform: translateY(0);
-          box-shadow: 0 2px 0 #9b3414;
-        }
-        50% {
-          transform: translateY(2px);
-          box-shadow: 0 0 0 #9b3414;
-        }
-        100% {
-          transform: translateY(0);
-          box-shadow: 0 2px 0 #9b3414;
-        }
-      }
-
-      #reset-button {
-        /* 通常時の見た目 */
-        background-color: #3561f3;
-        color: #fff;
-        padding: 8px 16px;
-        font-size: 16px;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        position: relative;
+        background-color: rgb(186, 176, 232);
+        border-color: rgb(186, 176, 232);
         
-        /* 軽い立体感（2pxの影） */
-        box-shadow: 0 2px 0 #14257c;
       }
 
-      /* 修正：:hover ではなく、JSでクラスがついた瞬間だけ実行する */
-      #reset-button.active-dip {
-        animation: dipAndReturn-reset 0.2s ease;
+      .omikuji-controls{
+        text-align: center;
       }
 
-      /* アニメーションの流れ（内容はそのまま） */
-      @keyframes dipAndReturn-reset {
-        0% {
-          transform: translateY(0);
-          box-shadow: 0 2px 0 #14257c;
-        }
-        50% {
-          transform: translateY(2px);
-          box-shadow: 0 0 0 #14257c;
-        }
-        100% {
-          transform: translateY(0);
-          box-shadow: 0 2px 0 #14257c;
-        }
+      h1{
+        border-bottom: solid rgb(153, 139, 227);
+        text-align: center;
       }
 
+      .play{
+        border-left: solid rgb(153, 139, 227) 4px;
+        padding: 0px 5px;
+      }
+
+      h2{
+        font-size: 40px;
+        text-align: center;
+      }
+
+      .omikuji-history{
+        text-align: center;
+        padding: 0px 10px ;
+      }
+
+      h3{
+        font-size: 25px;
+        text-align: center;
+        margin: 30px 0px 0px;
+      }
+
+      one2,two2,three2,four2,five2,six2,seven2,eight2,nine2{
+        margin: 0px 10px;
+        font-size: 20px;
+        border: solid rgb(186, 176, 232) 3px;
+        border-radius: 5px;
+        padding: 2px 20px;
+      }
+
+      #one4,#two4,#three4,#four4,#five4,#six4,#seven4,#eight4,#nine4{
+        margin: 0px 15px 0px 5px;
+        background-color: rgb(232, 232, 250);
+        border-color:  rgb(146, 146, 146);
+        border-width: 2px;
+        
+      } 
 
     </style>
   </head>
 
   <body>
-    <h1>おみくじアプリ</h1>
-    <p>「おみくじを引く」ボタンを押してみましょう。</p>
+
+    <h1>ガチャアプリ test2</h1>
+    <div class="play">遊び方</div>
+    <div class="test">クリックボタンを10回クリックするごとにガチャが引けます。ガチャの中身は全9種類！</div>
 
     <!--
       結果を表示する場所。render.ts が id="result" を取得して書き換える。
@@ -119,19 +99,53 @@
 
     <!-- 操作ボタン。クリック時の処理は main.ts で結びつけている。 -->
     <div class="omikuji-controls">
-      <button id="draw-button" onmousedown="this.classList.add('active-dip'); setTimeout(() => this.classList.remove('active-dip'), 200)">おみくじを引く</button>
-      <button id="reset-button" onmousedown="this.classList.add('active-dip'); setTimeout(() => this.classList.remove('active-dip'), 200)">リセット</button>
+      <!--　ようこ
+      countedは回数表示するやつ。
+      clickcheck-buttonは押すボタン。
+      srcフォルダのclick.tsってファイルにこの動きを入れるプログラム組んだ。
+      -->
+      <h2 id="counted">0回</h2>
+      <button id="clickcheck-button">クリック</button>
+      <button id="draw-button">ガチャを引く</button>
+      <button id="reset-button">リセット</button>
     </div>
-
     <!--
       拡張ポイント（ステップ2以降で使う空きエリア）。使わないうちは消してもよい。
         - 残りくじ枚数を出す → <div id="remaining">
         - 引いた履歴を出す   → <ul id="history"> に <li> を足していく
     -->
-    <div id="remaining" class="omikuji-remaining"></div>
-    <ul id="history" class="omikuji-history"></ul>
+
+    <h3>りれき</h3>
+
+    <div id="remaining" class="omikuji-remaining">
+    <div id="history" class="omikuji-history">
+      
+      <!--
+        結果を表示させるもの結果を<one2>でくくって、引いた回数を<one3>でくくり、全体を<one1>でくくっている
+      -->
+
+      <p>
+      <one1 id="one1"><one2>結果１</one2><one3 id="one3">0</one3><button id="one4">売る</button></one1>
+      <two1 id="two1"><two2>結果２</two2><two3 id="two3">0</two3><button id="two4">売る</button></two1>
+      <three1 id="three1"><three2>結果３</three2><three3 id="three3">0</three3><button id="three4">売る</button></three1>
+      </p>
+      <p>
+      <four1 id="four1"><four2>結果４</four2><four3 id="four3">0</four3><button id="four4">売る</button></four1>
+      <five1 id="five1"><five2>結果５</five2><five3 id ="five3">0</five3><button id="five4">売る</button></five1>
+      <six1 id="six1"><six2>結果６</six2><six3 id="six3">0</six3><button id="six4">売る</button></six1>
+      </p>
+      <p>
+      <seven1 id="seven1"><seven2>結果７</seven2><seven3 id="seven3">0</seven3><button id="seven4">売る</button></seven1>
+      <eight1 id="eight1"><eight2>結果８</eight2><eight3 id="eight3">0</eight3><button id="eight4">売る</button></eight1>
+      <nine1 id="nine1"><nine2>結果９</nine2><nine3 id="nine3">0</nine3><button id="nine4">売る</button></nine1>
+      </p>
+    </div>
+    </div>
 
     <!-- TypeScript を読み込む（Vite が変換する）。 -->
     <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/save.ts"></script>
+    <script type="module" src="/src/click.ts"></script>
   </body>
 </html>
+
