@@ -32,7 +32,7 @@ export function click(situation: any){
             }
             counted.textContent = `${count}回`;
 
-        if(situation == "reset")
+        if(situation == "reset") //リセット処理
             count = 0
             if(counted){counted.textContent = `${count}回`}
             if(count < 10){
@@ -41,28 +41,27 @@ export function click(situation: any){
     }
 }
 
-export function sell(situation: any){
-    let id2_button: (HTMLElement | null)[] = [null, null, null, null, null, null, null, null, null];
-    let id2_number1: (HTMLElement | null)[] = [null, null, null, null, null, null, null, null, null];
+export function sell(situation: any){ //売る処理
+    let id2_number1: (HTMLElement | null)[] = [null, null, null, null, null, null, null, null, null]; //結果のidを取得するための配列作成
     let id2_number2: (HTMLElement | null)[] = [null, null, null, null, null, null, null, null, null];
-    const counted = document.getElementById("counted");
+    const counted = document.getElementById("counted"); //クリック回数の表示のid取得
     const drawbutton = document.getElementById("draw-button")
 
     for(let i = 0; i < counter.length; i++){ 
-        id2_number1[i] = document.getElementById(id_number1[i])
-        id2_number2[i] = document.getElementById(id_number2[i])
+        id2_number1[i] = document.getElementById(id_number1[i]) //結果表示のid取得
+        id2_number2[i] = document.getElementById(id_number2[i]) //引いた数のid取得
         
-        if(counter[i] > 0 && counted && situation == `sold${i}`){
+        if(counter[i] > 0 && counted && situation == `sold${i}`){ //売るボタンが押された時の処理
             counter[i]--;
             count += 5
-            counted.textContent = `${count}回`;
+            counted.textContent = `${count}回`; 
             id2_number2[i]!.textContent = `${counter[i]}`;
 
-            if(counter[i] < 1){
+            if(counter[i] < 1){ //売った後引いた回数が0になったらその結果を非表示にする
                 id2_number1[i]!.style.visibility = "hidden"
             }
 
-            if(count >= 10){
+            if(count >= 10){ //売った結果クリック回数が10を超えたらガチャボタンを表示させる
                 drawbutton!.style.visibility ="visible"
             }
             
