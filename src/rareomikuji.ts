@@ -8,7 +8,7 @@
 export type OmikujiResult = "S" | "A" | "B" | "C" | "D" | "E";
 
 // 各結果を何枚ずつ箱に入れるかの比率。数値は自由に変えてよい。
-export const omikujiRatios: Record<OmikujiResult, number> = {
+export const rareomikujiRatios: Record<OmikujiResult, number> = {
   S: 10,
   A: 15,
   B: 25,
@@ -27,7 +27,7 @@ let tickets: OmikujiResult[] = [];
 export function rareresetOmikuji(): void {
   tickets = [];
 
-  for (const [result, count] of Object.entries(omikujiRatios)) {
+  for (const [result, count] of Object.entries(rareomikujiRatios)) {
     for (let i = 0; i < count; i++) {
       // Object.entries だとキーが string 扱いになるので as で元の型に戻す。
       tickets.push(result as OmikujiResult);
