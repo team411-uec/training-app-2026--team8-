@@ -5,10 +5,12 @@
 
 // おみくじの結果を表す型（Union Type）。
 // この6つの文字列以外は使えないので、打ち間違い（例: "第吉"）を防げる。
+
 export type RareOmikujiResult = "S" | "A" | "B" | "C" | "D" | "E";
 
 // 各結果を何枚ずつ箱に入れるかの比率。数値は自由に変えてよい。
 export const rareomikujiRatios: Record<RareOmikujiResult, number> = {
+
   S: 10,
   A: 15,
   B: 25,
@@ -19,7 +21,9 @@ export const rareomikujiRatios: Record<RareOmikujiResult, number> = {
 
 // 箱の中身（引けるくじ）。このファイルの中だけで使う。
 // export していないので外部からは直接触れず、下の関数を通して操作する。
+
 let tickets: RareOmikujiResult[] = [];
+
 
 
 
@@ -30,7 +34,9 @@ export function rareresetOmikuji(): void {
   for (const [result, count] of Object.entries(rareomikujiRatios)) {
     for (let i = 0; i < count; i++) {
       // Object.entries だとキーが string 扱いになるので as で元の型に戻す。
+
       tickets.push(result as RareOmikujiResult);
+
     }
   }
 
@@ -38,6 +44,7 @@ export function rareresetOmikuji(): void {
 }
 
 // 箱からランダムに1枚引いて返す。空のときは null を返す。
+
 export function raredrawOmikuji(): RareOmikujiResult | null {
     
 
@@ -62,3 +69,4 @@ export function raredrawOmikuji(): RareOmikujiResult | null {
 
 // 拡張ポイント（ステップ2以降）。必要になったら足す。
 //  - 残りくじ枚数を出す: tickets.length を返す関数をこのファイルに足す（tickets は外から読めない）。
+

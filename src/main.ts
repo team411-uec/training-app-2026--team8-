@@ -5,6 +5,7 @@
 
 import { resetOmikuji, drawOmikuji } from "./omikuji";
 import { renderResult, renderResult_rare } from "./render";
+
 import { rareresetOmikuji, raredrawOmikuji } from "./rareomikuji";
 
 function main(): void {
@@ -22,6 +23,9 @@ function main(): void {
     // render.ts の renderResult を実装すると、ここで画面に結果が出る（ステップ1）。
     renderResult(result);
   });
+  
+  raredrawButton?.addEventListener("click", () => {
+    const result = raredrawOmikuji();
 
   raredrawButton?.addEventListener("click", () => {
     const result = raredrawOmikuji();
@@ -37,6 +41,7 @@ function main(): void {
     // 表示を初期状態（結果なし）に戻す。
     renderResult(null);
   });
+}
 }
 
 main();
