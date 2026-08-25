@@ -5,6 +5,7 @@
 // なおちゃんみえますか
 
 import type { OmikujiResult } from "./omikuji";
+import type { RareOmikujiResult } from "./rareomikuji";
 
 // ステップ1（最初の課題）: この関数を実装する。
 //
@@ -29,6 +30,18 @@ export function renderResult(result: OmikujiResult | null): void {
   // TODO（ステップ1）: ここに DOM 操作を書いて、画面に結果を表示する。
 }
 
+export function renderResult_rare(result: RareOmikujiResult | null): void {
+  // ステップ0 ではコンソールに結果が出るだけ。
+  const omikujiresult = document.getElementById("result");
+  if(omikujiresult){
+    omikujiresult.textContent = `${result}`;
+    if(result==null){
+    omikujiresult.textContent ="ここに結果が出ます";
+    }
+  }
+
+  // TODO（ステップ1）: ここに DOM 操作を書いて、画面に結果を表示する。
+}
 // 拡張ポイント（ステップ2以降）。必要になったら関数を足す。
 //  - 履歴をリスト表示する: document.createElement で <li> を作り、<ul id="history"> に足す関数。
 //  - 残りくじ枚数を表示する: omikuji.ts に残数を返す関数を足したうえで表示用の関数を足す。
