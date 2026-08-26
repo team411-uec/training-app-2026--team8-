@@ -51,6 +51,7 @@ export function drawOmikuji(): OmikujiResult | null {
   const randomIdx = Math.floor(Math.random() * tickets.length);
   // splice は抜き出した要素の配列を返すので、その 0番目を取り出す。
   const drawnTicket = tickets.splice(randomIdx, 1)[0];
+  //何回引いたかを記録する処理
   for(let i = 0; i < cheker.length; i++){
     if(drawnTicket == cheker[i]){
       ++counter[i];
@@ -59,7 +60,6 @@ export function drawOmikuji(): OmikujiResult | null {
   return drawnTicket;
   
 }
-
 export {counter}
 //counterは引いた数を保存する手目のもの
 // 拡張ポイント（ステップ2以降）。必要になったら足す。
