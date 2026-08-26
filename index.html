@@ -67,12 +67,20 @@
       }
 
       one2,two2,three2,four2,five2,six2,seven2,eight2,nine2{
-        margin: 0px 20px;
+        margin: 0px 10px;
         font-size: 20px;
         border: solid rgb(186, 176, 232) 3px;
         border-radius: 5px;
         padding: 2px 20px;
       }
+
+      #one4,#two4,#three4,#four4,#five4,#six4,#seven4,#eight4,#nine4{
+        margin: 0px 15px 0px 5px;
+        background-color: rgb(232, 232, 250);
+        border-color:  rgb(146, 146, 146);
+        border-width: 2px;
+        
+      } 
 
     </style>
   </head>
@@ -80,7 +88,7 @@
   <body>
     <h1>ガチャアプリ</h1>
     <div class="play">遊び方</div>
-    <div class="test">クリックボタンを100回クリックするごとにガチャが引けます。ガチャの中身は全9種類！</div>
+    <div class="test">クリックボタンを10回クリックするごとにガチャが引けます。ガチャの中身は全9種類！</div>
 
     <!--
       結果を表示する場所。render.ts が id="result" を取得して書き換える。
@@ -114,20 +122,21 @@
       <!--
         結果を表示させるもの結果を<one2>でくくって、引いた回数を<one3>でくくり、全体を<one1>でくくっている
       -->
+
       <p>
-      <one1 id="one1"><one2>結果１</one2><one3 id="one3">0</one3></one1>
-      <two1 id="two1"><two2>結果２</two2><two3 id="two3">0</two3></two1>
-      <three1 id="three1"><three2>結果３</three2><three3 id="three3">0</three3></three1>
+      <one1 id="one1"><one2>結果１</one2><one3 id="one3">0</one3><button id="one4">売る</button></one1>
+      <two1 id="two1"><two2>結果２</two2><two3 id="two3">0</two3><button id="two4">売る</button></two1>
+      <three1 id="three1"><three2>結果３</three2><three3 id="three3">0</three3><button id="three4">売る</button></three1>
       </p>
       <p>
-      <four1 id="four1"><four2>結果４</four2><four3 id="four3">0</four3></four1>
-      <five1 id="five1"><five2>結果５</five2><five3 id ="five3">0</five3></five1>
-      <six1 id="six1"><six2>結果６</six2><six3 id="six3">0</six3></six1>
+      <four1 id="four1"><four2>結果４</four2><four3 id="four3">0</four3><button id="four4">売る</button></four1>
+      <five1 id="five1"><five2>結果５</five2><five3 id ="five3">0</five3><button id="five4">売る</button></five1>
+      <six1 id="six1"><six2>結果６</six2><six3 id="six3">0</six3><button id="six4">売る</button></six1>
       </p>
       <p>
-      <seven1 id="seven1"><seven2>結果７</seven2><seven3 id="seven3">0</seven3></seven1>
-      <eight1 id="eight1"><eight2>結果８</eight2><eight3 id="eight3">0</eight3></eight1>
-      <nine1 id="nine1"><nine2>結果９</nine2><nine3 id="nine3">0</nine3></nine1>
+      <seven1 id="seven1"><seven2>結果７</seven2><seven3 id="seven3">0</seven3><button id="seven4">売る</button></seven1>
+      <eight1 id="eight1"><eight2>結果８</eight2><eight3 id="eight3">0</eight3><button id="eight4">売る</button></eight1>
+      <nine1 id="nine1"><nine2>結果９</nine2><nine3 id="nine3">0</nine3><button id="nine4">売る</button></nine1>
       </p>
     </div>
     </div>
