@@ -8,14 +8,18 @@ import { renderResult } from "./render";
 import { click } from "./click";
 import { sell } from "./click";
 import { save_result } from "./save";
+import { raredrawOmikuji, rareresetOmikuji } from "./omikuji";
+import { renderResult_rare } from "./render";
 
 function main(): void {
   // おみくじ箱を用意する（1回呼ぶと、くじが入った状態になる）。
   resetOmikuji();
+  rareresetOmikuji();
 
   const drawButton = document.getElementById("draw-button");
   const resetButton = document.getElementById("reset-button");
   const button = document.getElementById("clickcheck-button"); //☚のボタンを変数buttonに入れてる
+  const raredrawbutton = document.getElementById("draw-rarebutton")
   const id_button = ["one4", "two4", "three4", "four4", "five4", "six4", "seven4", "eight4", "nine4"];
   const id2_button: (HTMLElement | null)[] = [null, null, null, null, null, null, null, null, null];
 
@@ -28,16 +32,26 @@ function main(): void {
     click("draw");
   });
 
+  
+
   resetButton?.addEventListener("click", () => {
     resetOmikuji();
     // 表示を初期状態（結果なし）に戻す。
     renderResult(null);
     save_result("reset")
     click("reset");
+    renderResult_rare(null)
   });
 
   button?.addEventListener("click", () => {
     click("addcount")
+  })
+
+  raredrawbutton!.addEventListener("click", () => {
+    const result = raredrawOmikuji()
+    click("rare");
+    renderResult_rare(result)
+    save_result("display");
   })
 
   for(let i = 0; i < id2_button.length; i++){

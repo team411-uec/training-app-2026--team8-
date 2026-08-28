@@ -6,6 +6,8 @@
 
 import { omikujiRatios, type OmikujiResult } from "./omikuji";
 import { counter } from "./omikuji";
+import { rareomikujiRatios, type RareOmikujiResult } from "./omikuji";
+
 // ステップ1（最初の課題）: この関数を実装する。
 //
 // いまは「引く」ボタンを押すと開発者ツール(F12)の Console に
@@ -25,6 +27,19 @@ export function renderResult(result: OmikujiResult | null): void {
     omikujiresult.textContent ="ここに結果が出ます";
     }
   }
+  // TODO（ステップ1）: ここに DOM 操作を書いて、画面に結果を表示する。
+}
+
+export function renderResult_rare(result: RareOmikujiResult | null): void {
+  // ステップ0 ではコンソールに結果が出るだけ。
+  const omikujiresult = document.getElementById("result");
+  if(omikujiresult){
+    omikujiresult.textContent = `${result}`;
+    if(result==null){
+    omikujiresult.textContent ="ここに結果が出ます!";
+    }
+  }
+
   // TODO（ステップ1）: ここに DOM 操作を書いて、画面に結果を表示する。
 }
 
