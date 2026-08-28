@@ -3,8 +3,8 @@
 export let count = 0; //何回押したか数える変数
 export let addcount2 = 0;
 import { counter } from "./omikuji";
-import { id_dumber } from "./save"
 import { id_number1 } from "./save";
+import { id_number2 } from "./save";
 
 //　↓exportいらないかも
 export function click(situation: any){
